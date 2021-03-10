@@ -4,7 +4,7 @@
 * 添加
 ```shell
 export PATH="$HOME/Documents/code/bin":$PATH
-alias lb='ls -AhlLS'
+alias lb='ls -AHhlLS'
 ```
 
 
