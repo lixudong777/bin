@@ -1,12 +1,10 @@
 # 小工具程序 Some tools
-* 设置
-```
-Linux/Mac 编辑文件 
-	~/.bashrc 或者  ~/.zshrc
-在末尾加入：
-	export PATH="bin文件夹路径":$PATH
-例如
-	export PATH="$HOME/Documents/code/bin":$PATH
+## 做一些设置
+* 在Linux 或 Mac 操作系统中，编辑文件 ~/.bashrc 或  ~/.zshrc
+* 添加
+```shell
+export PATH="$HOME/Documents/code/bin":$PATH
+alias lb='ls -AhlLS'
 ```
 
 
