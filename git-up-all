@@ -1,0 +1,46 @@
+#!/bin/bash
+# Copyright (c) 2021 Andy Lee : lixudong777@gmail.com 
+# 向Github上传所有code文件夹
+git_up_all() {
+local code_path="$HOME/Documents/code"
+local -a each_folder
+each_folder[0]="bin"
+each_folder[1]="learn"
+each_folder[2]="proj/hello"
+
+local -a main_branch
+main_branch[0]="master"
+main_branch[1]="master"
+main_branch[2]="main"
+
+echo "## 向Github上传所有code文件夹 ##"
+echo "文件夹为："
+for foo in "${each_folder[@]}"; do
+    echo -e "$code_path/$foo"
+done
+echo
+echo "## 顺序执行 ##"
+local index=0
+local git_stat
+for foo in "${each_folder[@]}"; do
+    cd "$code_path/$foo"
+    echo "pwd[$index]: $(pwd)"
+    git_stat=$(git status | grep -i "nothing to commit")
+    if [ -n "$git_stat" ]; then
+        echo -e "\t=> Nothing to commit."
+        ((++index)) 
+        continue
+    fi
+    echo "=> git add -vA *"
+    git add -vA *
+    echo "=> git commit -avm $(basename -a $(pwd))"
+    git commit -avm "$(basename -a $(pwd))"
+    echo "=> git push origin ${main_branch[index]}"
+    git push origin "${main_branch[index]}"
+    ((++index))
+done
+echo "done"
+}
+git_up_all
+
+
