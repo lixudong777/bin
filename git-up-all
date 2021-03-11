@@ -1,4 +1,4 @@
-#!/bin/bash
+#/bin/bash
 # Copyright (c) 2021 Andy Lee : lixudong777@gmail.com 
 # 向Github上传所有code文件夹
 git_up_all() {
@@ -27,7 +27,7 @@ for foo in "${each_folder[@]}"; do
     echo "pwd[$index]: $(pwd)"
     git_stat=$(git status | grep -i "nothing to commit")
     if [ -n "$git_stat" ]; then
-        echo -e "\t=> Nothing to commit."
+        echo -e "=> Nothing to commit."
         ((++index)) 
         continue
     fi
