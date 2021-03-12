@@ -16,7 +16,7 @@ main_branch[2]="main"
 echo "## 向Github上传所有code文件夹 ##"
 echo "文件夹为："
 for foo in "${each_folder[@]}"; do
-    echo -e "$code_path/$foo"
+    echo "$code_path/$foo"
 done
 echo
 echo "## 顺序执行 ##"
@@ -38,6 +38,7 @@ for foo in "${each_folder[@]}"; do
     echo "=> git push origin ${main_branch[index]}"
     git push origin "${main_branch[index]}"
     ((++index))
+    echo
 done
 echo "done"
 }
