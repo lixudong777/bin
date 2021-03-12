@@ -28,6 +28,7 @@ for foo in "${each_folder[@]}"; do
     git_stat=$(git status | grep -i "nothing to commit")
     if [ -n "$git_stat" ]; then
         echo "=> Nothing to commit."
+        echo 
         ((++index)) 
         continue
     fi
