@@ -27,14 +27,14 @@ for foo in "${each_folder[@]}"; do
     echo "pwd[$index]: $(pwd)"
     git_stat=$(git status | grep -i "nothing to commit")
     if [ -n "$git_stat" ]; then
-        echo "=> Nothing to commit."
+        echo "==> Nothing to commit."
     else
-        echo "=> git add -vA *"
+        echo "==> git add -vA *"
         git add -vA *
-        echo "=> git commit -avm $(basename -a $(pwd))"
+        echo "==> git commit -avm $(basename -a $(pwd))"
         git commit -avm "$(basename -a $(pwd))"
     fi  
-    echo "=> git push origin ${main_branch[index]}"
+    echo "==> git push origin ${main_branch[index]}"
     git push origin "${main_branch[index]}"
     ((++index))
     echo
